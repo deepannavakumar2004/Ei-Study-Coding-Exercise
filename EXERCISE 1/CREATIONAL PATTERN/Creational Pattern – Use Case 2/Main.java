@@ -15,14 +15,22 @@ public class Main {
             choice = getChoice(scanner, 1, EXIT);
 
             switch (choice) {
-                case 1 -> {
-                    Report r = factory.getReport("pdf");
-                    if (r != null) r.generate();
-                }
-                case 2 -> {
-                    Report r = factory.getReport("excel");
-                    if (r != null) r.generate();
-                }
+                case 1:
+                    Report r1 = factory.getReport("pdf");
+                    if (r1 != null) {
+                        r1.generate();
+                    }
+                    break;
+
+                case 2:
+                    Report r2 = factory.getReport("excel");
+                    if (r2 != null) {
+                        r2.generate();
+                    }
+                    break;
+
+                default:
+                    break;
             }
         } while (choice != EXIT);
 
@@ -33,8 +41,11 @@ public class Main {
         int c = -1;
         while (c < min || c > max) {
             System.out.print("Choose option (" + min + "-" + max + "): ");
-            try { c = Integer.parseInt(scanner.nextLine().trim()); }
-            catch (NumberFormatException e) { System.out.println("Please enter a valid number."); }
+            try {
+                c = Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid number.");
+            }
         }
         return c;
     }

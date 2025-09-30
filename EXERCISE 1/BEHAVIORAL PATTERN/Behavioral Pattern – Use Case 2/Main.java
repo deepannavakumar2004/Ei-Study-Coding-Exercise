@@ -22,19 +22,23 @@ public class Main {
 
             List<ChatUser> users = chatRoom.getUsers();
             switch (choice) {
-                case 1 -> {
+                case 1:
                     int from = getUserIndex(scanner, users.size(), "From user (1-" + users.size() + "): ");
                     int to = getUserIndex(scanner, users.size(), "To user (1-" + users.size() + "): ");
                     System.out.print("Enter message: ");
                     String msg = scanner.nextLine();
                     users.get(from).sendMessage(msg, users.get(to));
-                }
-                case 2 -> {
+                    break;
+
+                case 2:
                     System.out.println("Users:");
                     for (int i = 0; i < users.size(); i++) {
                         System.out.println((i + 1) + ". " + users.get(i).getName());
                     }
-                }
+                    break;
+
+                default:
+                    break;
             }
         } while (choice != EXIT);
 

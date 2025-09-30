@@ -21,15 +21,16 @@ public class Main {
             choice = getChoice(scanner, 1, EXIT);
 
             switch (choice) {
-                case 1 -> {
+                case 1:
                     System.out.print("Enter text: ");
                     String text = scanner.nextLine();
                     Command cmd = new WriteCommand(editor, text);
                     cmd.execute();
                     history.push(cmd);
                     logger.info("Text written.");
-                }
-                case 2 -> {
+                    break;
+
+                case 2:
                     if (!history.isEmpty()) {
                         Command last = history.pop();
                         last.undo();
@@ -37,8 +38,14 @@ public class Main {
                     } else {
                         System.out.println("Nothing to undo.");
                     }
-                }
-                case 3 -> System.out.println("Current Text: " + editor.getText());
+                    break;
+
+                case 3:
+                    System.out.println("Current Text: " + editor.getText());
+                    break;
+
+                default:
+                    break;
             }
         } while (choice != EXIT);
 

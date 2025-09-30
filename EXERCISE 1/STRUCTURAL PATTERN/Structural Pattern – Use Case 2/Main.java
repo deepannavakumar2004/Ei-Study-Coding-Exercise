@@ -15,13 +15,22 @@ public class Main {
             System.out.println("5. Exit");
             choice = getChoice(scanner, 1, EXIT);
 
-            Pizza pizza;
+            Pizza pizza = null;
             switch (choice) {
-                case 1 -> pizza = new PlainPizza();
-                case 2 -> pizza = new Cheese(new PlainPizza());
-                case 3 -> pizza = new Olives(new PlainPizza());
-                case 4 -> pizza = new Olives(new Cheese(new PlainPizza()));
-                default -> pizza = null;
+                case 1:
+                    pizza = new PlainPizza();
+                    break;
+                case 2:
+                    pizza = new Cheese(new PlainPizza());
+                    break;
+                case 3:
+                    pizza = new Olives(new PlainPizza());
+                    break;
+                case 4:
+                    pizza = new Olives(new Cheese(new PlainPizza()));
+                    break;
+                default:
+                    break;
             }
 
             if (pizza != null) {
@@ -37,8 +46,11 @@ public class Main {
         int c = -1;
         while (c < min || c > max) {
             System.out.print("Choose option (" + min + "-" + max + "): ");
-            try { c = Integer.parseInt(scanner.nextLine().trim()); }
-            catch (NumberFormatException e) { System.out.println("Please enter a valid number."); }
+            try {
+                c = Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid number.");
+            }
         }
         return c;
     }

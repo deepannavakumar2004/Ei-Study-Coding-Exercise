@@ -18,11 +18,14 @@ public class Main {
             choice = getChoice(scanner, 1, EXIT);
 
             switch (choice) {
-                case 1 -> {
+                case 1:
                     System.out.print("Enter message to log: ");
                     String msg = scanner.nextLine();
                     logger.log(msg); // ✅ your singleton log
-                }
+                    break;
+
+                default:
+                    break;
             }
         } while (choice != EXIT);
 
