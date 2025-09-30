@@ -6,7 +6,7 @@ public class Main {
     private static final Logger appLogger = Logger.getLogger("SingletonLoggerDemo");
 
     public static void main(String[] args) {
-        AppLogger logger = AppLogger.getInstance(); // ✅ use your singleton
+        AppLogger logger = AppLogger.getInstance(); 
         Scanner scanner = new Scanner(System.in);
 
         final int EXIT = 2;
